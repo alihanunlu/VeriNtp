@@ -39,6 +39,7 @@ namespace VeriNtp
                     veri = veriOku.ReadString().Trim();
                     listBox1.Items.Add(veri);
                 }
+
                 wadi.Close();
                 fadi.Close();
 
