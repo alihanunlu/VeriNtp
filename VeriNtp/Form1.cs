@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.IO;
 
 namespace VeriNtp
 {
@@ -16,11 +18,36 @@ namespace VeriNtp
         {
             InitializeComponent();
         }
-
+        long oncekiHaberSayi;
         private void Form1_Load(object sender, EventArgs e)
         {
-            Console.WriteLine("sad");
-            Console.WriteLine("sad");
+            XmlTextReader veriOku = new XmlTextReader("https://tr.motor1.com/rss/make/bmw/");
+            FileStream fadi = new FileStream("veri.txt",FileMode.Create,FileAccess.Write);
+            StreamWriter wadi = new StreamWriter(fadi);
+
+            while (veriOku.Read())
+            {
+                oncekiHaberSayi++;
+                string veri;
+                if (veriOku.Name=="title")
+                {
+                    veri = veriOku.ReadString().Trim();
+                    listBox1.Items.Add(veri);
+                }
+                if (veriOku.Name == "description")
+                {
+                    veri = veriOku.ReadString().Trim();
+                    listBox1.Items.Add(veri);
+                }
+                wadi.Close();
+                fadi.Close();
+
+
+            }
+        
+        
+        
+        
         }
     }
 }
