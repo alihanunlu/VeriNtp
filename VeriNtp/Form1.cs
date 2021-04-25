@@ -63,11 +63,8 @@ namespace VeriNtp
                     label1.Text = wadi.ReadLine();
                 }
 
-                say++;
-
             }
-            wadi.Close();
-            fadi.Close();
+           
 
         }
     }
