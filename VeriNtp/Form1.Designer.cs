@@ -36,9 +36,9 @@ namespace VeriNtp
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(154, 84);
+            this.listBox1.Location = new System.Drawing.Point(102, 35);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(290, 160);
+            this.listBox1.Size = new System.Drawing.Size(547, 238);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
