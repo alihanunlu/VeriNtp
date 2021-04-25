@@ -67,5 +67,16 @@ namespace VeriNtp
            
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            FileStream fadi = new FileStream("veri.txt", FileMode.Open, FileAccess.Read);
+            StreamReader wadi = new StreamReader(fadi);
+            if (oncekiHaberSayi< fadi.Length)
+            {
+                MessageBox.Show("haber geldi");
+            }
+        }
     }
 }
