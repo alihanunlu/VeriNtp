@@ -67,14 +67,13 @@ namespace VeriNtp
                 {
                     veri = veriOku.ReadString().Trim();
                     listBox1.Items.Add(veri);
-                   // wadi.wr(veri);
+                   
 
                 }
                 if (veriOku.Name == "description")
                 {
                     veri = veriOku.ReadString().Trim();
-                   // wadi.Write(veri);
-
+                    listBox1.Items.Add(veri);
                 }
 
             }
