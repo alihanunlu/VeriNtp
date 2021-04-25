@@ -51,7 +51,23 @@ namespace VeriNtp
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            int say = 0;
+            FileStream fadi = new FileStream("veri.txt", FileMode.Open, FileAccess.Read);
+            StreamReader wadi = new StreamReader(fadi);
+            int secilenHaberBaslik = listBox1.SelectedIndex;
+
+            while (fadi.Length>say)
+            {
+                if (secilenHaberBaslik==say)
+                {
+                    label1.Text = wadi.ReadLine();
+                }
+
+                say++;
+
+            }
+            wadi.Close();
+            fadi.Close();
         }
     }
 }
