@@ -62,21 +62,43 @@ namespace VeriNtp
                 {
                     label1.Text = wadi.ReadLine();
                 }
-
+                say++;
             }
-           
+            wadi.Close();
+            fadi.Close();
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+            XmlTextReader veriOku = new XmlTextReader("https://tr.motor1.com/rss/make/bmw/");
             FileStream fadi = new FileStream("veri.txt", FileMode.Open, FileAccess.Read);
             StreamReader wadi = new StreamReader(fadi);
             if (oncekiHaberSayi< fadi.Length)
             {
                 MessageBox.Show("haber geldi");
             }
+            while (veriOku.Read())
+            {
+                String veri;
+                if (veriOku.Name == "title")
+                {
+                    veri = veriOku.ReadString().Trim();
+                    listBox1.Items.Add(veri);
+                   // wadi.wr(veri);
+
+                }
+                if (veriOku.Name == "description")
+                {
+                    veri = veriOku.ReadString().Trim();
+                    wadi.Write(veri);
+
+                }
+
+            }
+            wadi.Close();
+            fadi.Close();
         }
     }
 }
